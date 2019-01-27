@@ -41,7 +41,9 @@ ___
 # Configuring Server
 ## 1) Set Up Amazon Lightsail
 Login to Amazon Lightsail: https://lightsail.aws.amazon.com
+
 Follow instructions to set up an AWS account if do not already have one.
+
 #### Create an Instance:
 At AWS Lightsail homepage: choose 'Create an Instance'
 Choose the following options:
