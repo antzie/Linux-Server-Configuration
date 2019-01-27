@@ -137,28 +137,47 @@ $ apt-get upgrade
 $ apt-get install finger
 $ reboot
 ```
+
 **Potential Error**:  'the following packages have been kept back'
+
 ``` $ sudo apt-get install <list of packages kept back>```
 
 ## 4) SSH-Keys for Grader/File Authourisation
+
 ### Generate Keys
+
 On **local** machine run
+
 ``` $ ssh-keygen ```
+
 ```
 Enter file in which to save the key (/c/Users/<YOUR LOCAL USERNAME>/.ssh/id_rsa): eg: /c/users/antzie/.ssh/graderKey
 ```
+
 ### Setup Keys on Server
+
 Read public key (still on local machine)
+
 ``` $ cat ~/.ssh/<NAME OF YOUR KEY>.pub ```
+
 *Example* ``` $ cat ~/.ssh/graderKey.pub ```
+
 Copy public key -- *include* ssh-rsa and *exclude* user@user'sComputerName
 
+
 On **Lightsail Server**:
+
 As root user go to grader.
+
 ``` $ cd /home/grader ```
+
  Create both the  ```.ssh``` directionary and ```.ssh/authorized_keys```;
- ``` $ mkdir .ssh ```
-``` $ nano .ssh/authorized_keys```
+
+ ``` 
+ $ mkdir .ssh 
+ $ nano .ssh/authorized_keys
+ ```
+ 
  Paste public key into ```authorized_keys```
  
 ### File authorisations
@@ -168,53 +187,90 @@ $ chmod 700 /home/grader/.ssh
 $ chown grader:grader /home/grader/.ssh/authorized_keys
 $ chmod 644 /home/grader/.ssh/authorized_keys
 ```
+
 **Potential Error**: If for any reason you wish to delete a user, the following command will delete both the user and its associated directory.
+
 ``` $ userdel -r grader ```
 
 **Login as Grader with Key**
+
 ``` ssh -i ~/.ssh/<PRIVATE KEY NAME> grader@3.104.111.195```
-*Example* ``` ssh -i ~/.ssh/graderKey grader@3.104.111.195```
+
+*Example* 
+
+``` ssh -i ~/.ssh/graderKey grader@3.104.111.195```
+
 ## 5) Disable Root Log-In/Change SSH Port
+
 ***WARNING***. Before changing SSH port, ***ensure*** that the LightSail instance has been configured to port 2200. See above - 1) Configure Lightsail Firewall.
+
 Open file for editing
+
 ``` $  nano /etc/ssh/sshd_config ```
+
 Disable Root Log-In
+
 ```PermitRootLogin permit-password to: PermitRootLogin no```
+
 Ensure 
+
 ``` PasswordAuthentication no ```
+
 Change SSH Port 
+
 ``` Port 22 change to  Port 2200 ```
+
 Restart ssh for changes to take effect
+
 ``` $ service ssh restart ``` 
+
 ## Log into server as Grader and specify port 2200, e.g:
+
 ``` $ ssh -i ~/.ssh/graderKey grader@3.104.111.195 -p 2200  ```
+
 ## 6) Check UTC Timezone
+
 ``` $ date +%Z ``` 
+
 ## 7) Configure UFW FireWall
+
 ***WARNING***. Before configuring UFW, ***ensure*** that the LightSail instance has been configured to allow the correct connections. See above - 1) Configure Lightsail Firewall.
+
 Block all incoming connections
+
 ``` $ sudo ufw default deny incoming ```
+
 Allow all outgoing connections
+
 ``` $ sudo ufw default allow outgoing ```
+
 Specific Configurations
-``` $ sudo ufw allow 2200/tcp ```
-``` $ sudo ufw allow www ```
-``` $ sudo ufw allow ntp ```
+```
+$ sudo ufw allow 2200/tcp
+$ sudo ufw allow www 
+$ sudo ufw allow ntp
+```
+
 Check to see if rules have been added **especially** *2200/tcp*
+
 ``` $ sudo ufw show added ```
+
 Enable Firewall 
+
 ``` sudo ufw enable ```
+
 Check Status
+
 ``` sudo ufw status ```
+
 Should look like below:
-|  To    | Action | From  |
-| ------------- |-----------| -----|
-| 2200/tcp   | ALLOW  | Anywhere |
-| 80/tcp  | ALLOW  |   Anywhere|
-| 123    | ALLOW  | Anywhere |
-| 2200/tcp (v6)  | ALLOW  |   Anywhere (v6) |
-| 80/tcp (v6)   | ALLOW  | Anywhere (v6) |
-| 123 (v6)  | ALLOW  |   Anywhere (v6) |                           
+
+2200/tcp --- ALLOW  ---  Anywhere
+80/tcp  ---  ALLOW   ---   Anywhere
+123    --- ALLOW  --- Anywhere
+2200/tcp (v6)  --- ALLOW  ---  Anywhere (v6) 
+80/tcp (v6)   ---  ALLOW  ---  Anywhere (v6)
+123 (v6)   --- ALLOW  --- Anywhere (v6)                           
 
 # Deploy Project
 ## 1) Install Apache and Mod-WSGI and 
