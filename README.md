@@ -1,5 +1,5 @@
 # Linux Server Configuration (Udacity Full-Stack Nanodegree)
-Detailed instructions on configuring and securing an Ubuntu Linux Server and then deploying a Flask web application: specifically [*Calla Grocers*](https://github.com/antzie/catalog) an item catalogue application developed for Udacity's Full-Stack Nanodegree.
+Detailed instructions on configuring and securing an Ubuntu Linux Server and then deploying a Flask web application - specifically [*Calla Grocers*](https://github.com/antzie/catalog): an item catalogue application developed for Udacity's Full-Stack Nanodegree.
 ___
 Public IP Address: http://3.104.111.195
 
