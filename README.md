@@ -58,11 +58,17 @@ Create Instance!
 
 ### Acquire AWS Public-Private Key 
 From Lightsail Instance main page, access link to default private key from Account page.
+
 Download SSH key pair to  local machine.
+
 Move ```.pem public key``` file into the ```.ssh``` folder at the root of local user
+
 *Location on Windows*
+
 ``` C:\Users\<YOUR USER NAME ON YOUR MACHINE>\.ssh ```
+
 *Example* ```C:\Users\antzie\.ssh```
+
 Secure the key: 
 ``` chmod 600 ~/.ssh/<YOUR KEY NAME> ```
 ### Configure LightSail FireWall
