@@ -6,13 +6,13 @@ URL: http://ec2-3-104-111-195.ap-southeast-2.compute.amazonaws.com
 SSH Port: 2200
 ___
 ## Software Summary
-Python - 2.7.12
-Python-flask -  0.10.1-2build2
-Postgresql - 9.5
-Apache2 -  2.4.18
-Libapache2-mod-wsgi - 4.3.0-1.1build1 
-Ubuntu - 16.04.1
-AWS Lightsail Server 
+- Python - 2.7.12
+- Python-flask -  0.10.1-2build2
+- Postgresql - 9.5
+- Apache2 -  2.4.18
+- Libapache2-mod-wsgi - 4.3.0-1.1build1 
+- Ubuntu - 16.04.1
+- AWS Lightsail Server 
 ---
 ## Summary
 ##### Configure Server
