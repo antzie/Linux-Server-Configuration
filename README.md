@@ -86,29 +86,51 @@ Add two (2) ports:
 
 ## 2). Log-In & Create User: Grader
 ### Login to AWS Lightsail Instance from local machine
+
 Access command line. (Windows: GIT BASH)
+
 Log-in!
+
 ``` ssh -i ~/.ssh/<YOUR AWS KEY> ubuntu@<YOUR PUBLIC IP ADDRESS> ```
+
 *Example*
+
 ``` ssh -i ~/.ssh/LightsailDefaultKey-ap-southeast-2.pem ubuntu@3.104.111.195 ```
+
 You should be logged in as user, ubuntu
+
 ### Create New User
+
 Switch to root user
+
 ```$ sudo su - ```
+
 Create User
+
 ```$ sudo adduser grader  ``` 
+
 *Set Password for Grader*
+
 Grant Sudo Access
+
 ``` $ sudo nano /etc/sudoers.d/grader```
+
 Insert into sudoers.d/grader
+
 ```grader ALL=(ALL:ALL) ALL ```
 
 **Potential Error** '*Fix Resolve Host Error*' 
+
 ``` $ sudo nano /etc/hosts```
+
 Add following below 127.0.1.1:localhost
+
 ```127.0.1.1 ip-10-20-37-65```
+
 ## 3) Update Default Lightsail Server
+
 As root user
+
 ``` 
 $ apt-get update 
 $ apt-get upgrade
