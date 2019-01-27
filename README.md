@@ -15,7 +15,7 @@ ___
 - AWS Lightsail Server 
 ---
 ## Summary
-##### Configure Server
+### Configure Server
  1) Set Up Amazon Light Sail Server
  2) Log-in & Create User: Grader
  3) Update Default Lightsail Server
@@ -24,7 +24,7 @@ ___
  6) Check UTC TimeZone
  7) Configure UFW Firewall
  8) Login as Grader
-##### Deploy Project
+### Deploy Project
  1) Install Apache/Mod-WSGI/PostgreSQL
  2) Setup PostgreSQL/Disable Remote Connections
  3) Install Python Libraries/Git etc.
@@ -34,7 +34,7 @@ ___
  7) Update Google Authentication
  8) Configure Apache2 Virtualhost
  9) Run Application
-##### Miscellaneous
+### Miscellaneous
 1) Potential Errors
 2) Documentation List
 ---
