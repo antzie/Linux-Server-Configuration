@@ -573,8 +573,8 @@ https://github.com/SteveWooding/fullstack-nanodegree-linux-server-config
 Open http://3.104.111.195 or ec2-3-104-111-195.ap-southeast-2.compute.amazonaws.com
 
 Pray.
-
 ---
+
 # Miscellaneous
 
 ## 1) Potential Errors List
