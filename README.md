@@ -2,7 +2,9 @@
 Detailed instructions on configuring and securing an Ubuntu Linux Server and then deploying a Flask web application: specifically [*Calla Grocers*](https://github.com/antzie/catalog) an item catalogue application developed for Udacity's Full-Stack Nanodegree.
 ___
 Public IP Address: http://3.104.111.195
+
 URL: http://ec2-3-104-111-195.ap-southeast-2.compute.amazonaws.com
+
 SSH Port: 2200
 ___
 ## Software Summary
@@ -44,7 +46,7 @@ Login to Amazon Lightsail: https://lightsail.aws.amazon.com
 
 Follow instructions to set up an AWS account if do not already have one.
 
-#### Create an Instance:
+### Create an Instance:
 At AWS Lightsail homepage: choose 'Create an Instance'
 
 Choose the following options:
@@ -54,7 +56,7 @@ Choose the following options:
  -Identify your instance: e.g. Ubuntu-512MB-Sydney-3
 Create Instance!
 
-#### Acquire AWS Public-Private Key 
+### Acquire AWS Public-Private Key 
 From Lightsail Instance main page, access link to default private key from Account page.
 Download SSH key pair to  local machine.
 Move ```.pem public key``` file into the ```.ssh``` folder at the root of local user
@@ -63,7 +65,7 @@ Move ```.pem public key``` file into the ```.ssh``` folder at the root of local 
 *Example* ```C:\Users\antzie\.ssh```
 Secure the key: 
 ``` chmod 600 ~/.ssh/<YOUR KEY NAME> ```
-#### Configure LightSail FireWall
+### Configure LightSail FireWall
 From instance main page - click on networking.
 Add two (2) ports:
 |  Application  | Protocol | Port range  |
@@ -72,14 +74,14 @@ Add two (2) ports:
 | CUSTOM | TCP |   2200 |
 *Remember to save port changes.*
 ## 2). Log-In & Create User: Grader
-#### Login to AWS Lightsail Instance from local machine
+### Login to AWS Lightsail Instance from local machine
 Access command line. (Windows: GIT BASH)
 Log-in!
 ``` ssh -i ~/.ssh/<YOUR AWS KEY> ubuntu@<YOUR PUBLIC IP ADDRESS> ```
 *Example*
 ``` ssh -i ~/.ssh/LightsailDefaultKey-ap-southeast-2.pem ubuntu@3.104.111.195 ```
 You should be logged in as user, ubuntu
-#### Create New User
+### Create New User
 Switch to root user
 ```$ sudo su - ```
 Create User
@@ -106,13 +108,13 @@ $ reboot
 ``` $ sudo apt-get install <list of packages kept back>```
 
 ## 4) SSH-Keys for Grader/File Authourisation
-##### Generate Keys
+### Generate Keys
 On **local** machine run
 ``` $ ssh-keygen ```
 ```
 Enter file in which to save the key (/c/Users/<YOUR LOCAL USERNAME>/.ssh/id_rsa): eg: /c/users/antzie/.ssh/graderKey
 ```
-##### Setup Keys on Server
+### Setup Keys on Server
 Read public key (still on local machine)
 ``` $ cat ~/.ssh/<NAME OF YOUR KEY>.pub ```
 *Example* ``` $ cat ~/.ssh/graderKey.pub ```
@@ -126,7 +128,7 @@ As root user go to grader.
 ``` $ nano .ssh/authorized_keys```
  Paste public key into ```authorized_keys```
  
-#### File authorisations
+### File authorisations
 ```
 $ chown grader:grader /home/grader/.ssh
 $ chmod 700 /home/grader/.ssh
@@ -238,13 +240,13 @@ Directory should look like this:
 /srv/flaskApp/catalog
 -- > contents of git directory
 ## 5) Setup Git Files
-#### Rename app.py
+### Rename app.py
  If not already done so, rename main python application file.
 e.g. rename app.py to '_ _init__.py' 
 (*required for mod_wsgi*)
 ``` $ cd /srv/flaskApp/catalog ```
 ``` $ sudo mv app.py __init__.py ```
-#### Add Path to Client Secrets 
+### Add Path to Client Secrets 
 Find and copy the absolute path of client_secrets file.
 e.g. client_secret.json
 ``` $ cd /srv/flaskApp/catalog ```
@@ -254,7 +256,7 @@ Paste into __ init__.py
 Replace all references to client_secret.json
 *Example*
 CLIENT_ID = json.loads(open('/srv/flaskApp/catalog/client_secret.json', 'r').read())['web']['client_id']
-#### Postgresql Database Connection
+### Postgresql Database Connection
 ``` $ cd srv/flaskApp/catalog ```
 Change engine in *all* the following files:
 ``` $ sudo nano __init__.py```
@@ -265,7 +267,7 @@ Change
 To
 ``` engine = create_engine('postgresql://catalog:PASSWORD@localhost/catalog')```
 Where PASSWORD is the password for catalog created when postgresql was set up.
-#### Change host and port in __ init__.py
+### Change host and port in __ init__.py
 Change Host to Lightsail Public IP and Port to 80.
 *Example*:
 if __name__ == '__main__':
@@ -297,7 +299,7 @@ https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-applicati
 Find AWS hostname/domain
 http://www.hcidata.info/host2ip.cgi
 Example: `ec2-3-104-111-195.ap-southeast-2.compute.amazonaws.com`
-##### Update Google Developers Console
+### Update Google Developers Console
 https://console.developers.google.com.
 Add AWS domain to authorized domains in *Oauth Consent Screen* 
 Add Public IP and Domain to *Authorized JavaScript origins* in *Credentials* -> *Web Client*
@@ -307,7 +309,7 @@ Add Domain to *Authorized Redirect URIs* in *Credentials* -> *Web Client*
 e.g. ```http://ec2-3-104-111-195.ap-southeast-2.compute.amazonaws.com/callback ```
 Download *client_secrets* file.
 Copy contents of newly adjusted client_secrets file
-##### Update Client_Secret file
+### Update Client_Secret file
 Paste contents of file into *client_secret.json* on server
 ``` $ sudo nano /srv/flaskApp/catalog/client_secret.json ```
 ## 8) Configure Apache2 
