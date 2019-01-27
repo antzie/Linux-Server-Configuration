@@ -71,14 +71,19 @@ Move ```.pem public key``` file into the ```.ssh``` folder at the root of local 
 
 Secure the key: 
 ``` chmod 600 ~/.ssh/<YOUR KEY NAME> ```
+
 ### Configure LightSail FireWall
+
 From instance main page - click on networking.
+
 Add two (2) ports:
-|  Application  | Protocol | Port range  |
-| ------------- |-----------| -----|
-| CUSTOM   | UDP | 123 |
-| CUSTOM | TCP |   2200 |
+
+ CUSTOM --- UDP --- 123 
+ 
+ CUSTOM --- TCP --- 2200 
+ 
 *Remember to save port changes.*
+
 ## 2). Log-In & Create User: Grader
 ### Login to AWS Lightsail Instance from local machine
 Access command line. (Windows: GIT BASH)
