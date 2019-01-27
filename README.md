@@ -46,14 +46,14 @@ Follow instructions to set up an AWS account if do not already have one.
 
 #### Create an Instance:
 At AWS Lightsail homepage: choose 'Create an Instance'
+
 Choose the following options:
-|Option  | Choice |
-| ------ | ------ |
-| Platform | Linux |
-|Blueprint: |OS Only -Ubuntu 16.04 LTS|
-|Instance Plan | e.g. $3.50/month |
-|Identify your instance |  e.g. Ubuntu-512MB-Sydney-3 
+ - Platform : Linux
+ - Blueprint: OS Only -Ubuntu 16.04 LTS
+ - Instance Plan: e.g. $3.50/month 
+ -Identify your instance: e.g. Ubuntu-512MB-Sydney-3
 Create Instance!
+
 #### Acquire AWS Public-Private Key 
 From Lightsail Instance main page, access link to default private key from Account page.
 Download SSH key pair to  local machine.
