@@ -570,9 +570,10 @@ https://github.com/SteveWooding/fullstack-nanodegree-linux-server-config
 
 ## 9) Run Application
 
-Open http://3.104.111.195 or ec2-3-104-111-195.ap-southeast-2.compute.amazonaws.com
+Open http://3.104.111.195 or http://ec2-3-104-111-195.ap-southeast-2.compute.amazonaws.com
 
 Pray.
+
 ---
 
 # Miscellaneous
