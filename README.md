@@ -125,7 +125,7 @@ Insert into sudoers.d/grader
 
 Add following below 127.0.1.1:localhost
 
-```127.0.1.1 ip-10-20-37-65```
+```127.0.1.1 <hostname>```
 
 ## 3) Update Default Lightsail Server
 
