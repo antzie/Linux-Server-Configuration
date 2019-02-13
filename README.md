@@ -555,7 +555,7 @@ Pray.
 
 ---
 
-# Miscellaneous
+# Troubleshooting.
 
 ## 1) Potential Errors List
 
@@ -582,24 +582,8 @@ Add following below 127.0.1.1:localhost
 ``` $ sudo python -m easy_install --upgrade pyOpenSSL ```
 
 
-## 2) Documentation List
-
-- Postgresql
-- https://help.ubuntu.com/community/PostgreSQL,
-- http://ramiro.org/blog/postgresql-cheat-sheet-ubuntu/
-- https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps
- Package Python Update/Install
-- https://www.cyberciti.biz/faq/debian-ubuntu-linux-apt-get-aptitude-show-package-version-command/
-- https://fosstack.com/tips/upgrade-all-pip-packages/index.html
-- https://stackoverflow.com/questions/43267157/python-attributeerror-module-object-has-no-attribute-ssl-st-init
- Mod_WSGI
-- http://flask.pocoo.org/docs/1.0/deploying/mod_wsgi/
-- https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
-Setting Up VirtualHost
-- https://modwsgi.readthedocs.io/en/develop/user-guides/quick-configuration-guide.html
-- http://flask.pocoo.org/docs/1.0/deploying/mod_wsgi/
-- https://www.the-art-of-web.com/system/apache-authorization/
-- Github Alumni
+## Acknowledgements.
+Much thanks goes to the following Udacity Alumni for their extremely helpful Readmes without which there would have been much hairpulling.  
 - https://github.com/SteveWooding/fullstack-nanodegree-linux-server-config
 - https://github.com/chuanqin3/udacity-linux-configuration
 
