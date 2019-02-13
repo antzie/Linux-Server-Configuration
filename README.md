@@ -15,30 +15,7 @@ ___
 - Libapache2-mod-wsgi - 4.3.0-1.1build1 
 - Ubuntu - 16.04.1
 - AWS Lightsail Server 
----
-## Summary
-### Configure Server
- 1) Set Up Amazon Light Sail Server
- 2) Log-in & Create User: Grader
- 3) Update Default Lightsail Server
- 4) SSH-Keys/File Authorisation
- 5) Disable Root Log-in/Change SSH Port
- 6) Check UTC TimeZone
- 7) Configure UFW Firewall
- 8) Login as Grader
-### Deploy Project
- 1) Install Apache/Mod-WSGI/PostgreSQL
- 2) Setup PostgreSQL/Disable Remote Connections
- 3) Install Python Libraries/Git etc.
- 4) Clone Git Repository 
- 5) Setup Git Files (Postgresql Connection et al.)
- 6) Configure WSGI
- 7) Update Google Authentication
- 8) Configure Apache2 Virtualhost
- 9) Run Application
-### Miscellaneous
-1) Potential Errors
-2) Documentation List
+
 ---
 # Configuring Server
 ## 1) Set Up Amazon Lightsail
